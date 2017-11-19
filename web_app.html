@@ -1,0 +1,211 @@
+<html>
+<head>
+  <title>Countdown</title>
+  <h1>San Fransisco</h1>
+<style>
+/* Style the <hr> element */
+hr {
+    margin: auto;
+    width: 100%;
+}
+
+.button {
+   border: 2px solid #0a3c59;
+   background: #e4e8eb;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#e4e8eb));
+   background: -webkit-linear-gradient(top, #65a9d7, #e4e8eb);
+   background: -moz-linear-gradient(top, #65a9d7, #e4e8eb);
+   background: -ms-linear-gradient(top, #65a9d7, #e4e8eb);
+   background: -o-linear-gradient(top, #65a9d7, #e4e8eb);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #e4e8eb 100%);
+   padding: 13px 26px;
+   -webkit-border-radius: 11px;
+   -moz-border-radius: 11px;
+   border-radius: 11px;
+   -webkit-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   -moz-box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   box-shadow: rgba(255,255,255,0.4) 0 1px 0, inset rgba(255,255,255,0.4) 0 1px 0;
+   text-shadow: #7ea4bd 0 1px 0;
+   color: #06426c;
+   font-size: 16px;
+   font-family: helvetica, serif;
+   text-decoration: none;
+   vertical-align: middle;
+   }
+.button:hover {
+   border: 2px solid #0a3c59;
+   text-shadow: #1e4158 0 1px 0;
+   background: #3e779d;
+   background: -webkit-gradient(linear, left top, left bottom, from(#65a9d7), to(#3e779d));
+   background: -webkit-linear-gradient(top, #65a9d7, #3e779d);
+   background: -moz-linear-gradient(top, #65a9d7, #3e779d);
+   background: -ms-linear-gradient(top, #65a9d7, #3e779d);
+   background: -o-linear-gradient(top, #65a9d7, #3e779d);
+   background-image: -ms-linear-gradient(top, #65a9d7 0%, #3e779d 100%);
+   color: #fff;
+   }
+.button:active {
+   text-shadow: #1e4158 0 1px 0;
+   border: 2px solid #0a3c59;
+   background: #65a9d7;
+   background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#3e779d));
+   background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+   background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+   background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+   background: -o-linear-gradient(top, #3e779d, #65a9d7);
+   background-image: -ms-linear-gradient(top, #3e779d 0%, #65a9d7 100%);
+   color: #fff;
+   }
+  img {
+    opacity: 0.5;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+    }
+  body, html {
+    height: 100%;
+    background-color: black;
+}
+
+#tester {
+  font-family: sans-serif;
+  color: #fff;
+  text-align: center;
+}
+
+h1{
+  color: #396;
+  font-weight: 100;
+  font-size: 40px;
+  margin: 40px 0px 20px;
+  text-align: center;
+}
+
+
+#clockdiv{
+	font-family: sans-serif;
+	color: #fff;
+	display: inline-block;
+	font-weight: 100;
+	text-align: center;
+	font-size: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+#clockdiv > div{
+	padding: 10px;
+	border-radius: 3px;
+	background: #b21818;
+	display: inline-block;
+}
+
+#clockdiv div > span{
+	padding: 15px;
+	border-radius: 3px;
+	background: #b21818;
+	display: inline-block;
+}
+
+.smalltext{
+	padding-top: 5px;
+	font-size: 16px;
+}
+    body {
+    background: url("http://www.blueskyscenery.com/images/LAS_North4West10/LAS_North4West10_1.jpg");
+    background-size: auto 100%;
+}
+</style>
+</head>
+
+  <body>
+   <script>
+     // Set the date we're counting down to
+var countDownDate = new Date("Jan 5, 2032 15:37:25").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+  
+
+  // Find the distance between now an the count down date
+    var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes, seconds, and milliseconds
+  var years = Math.floor(distance / (1000 * 60 * 60 * 24 * 365));
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+// Display the result in the element with id="demo"
+    document.getElementById("years").innerHTML = ('0' + years).slice(-2)
+    document.getElementById("days").innerHTML = ('0' + days).slice(-2)
+    document.getElementById("hours").innerHTML = ('0' + hours).slice(-2)
+    document.getElementById("minutes").innerHTML = ('0' + minutes).slice(-2)
+    document.getElementById("seconds").innerHTML = ('0' + seconds).slice(-2)
+
+        // If the count down is finished, write some text 
+    if (distance = 0) {
+      clearInterval(x);
+      document.getElementById("years").innerHTML = "EXPIRED";
+      document.getElementById("days").innerHTML = "EXPIRED";
+      document.getElementById("hours").innerHTML = "EXPIRED";
+      document.getElementById("minutes").innerHTML = "EXPIRED";
+      document.getElementById("seconds").innerHTML = "EXPIRED";
+        }
+      }, '50');
+      function ESTfunction(){
+  alert("hello world");
+}
+    </script>
+
+<div id="clockdiv">
+  <div class="tester">Countdown Clock</div>
+  <br>
+  <br>
+  <div>
+    <p id="years"></p>
+    <div class="smalltext">Years</div>
+  </div>
+  <div>
+    <p id="days"></p>
+    <div class="smalltext">Days</div>
+  </div>
+  <div>
+    <p id="hours"></p>
+    <div class="smalltext">Hours</div>
+  </div>
+  <div>
+    <p id="minutes"></p>
+    <div class="smalltext">Minutes</div>
+  </div>
+  <div>
+    <p id="seconds"></p>
+    <div class="smalltext">Seconds</div>
+  </div>
+</div>
+
+<div style="position:fixed; left:80px; top:40px">
+      <a href='#' class='button'onclick='ESTfunction()'>World</a>
+</div>
+
+<div style="position:fixed; left:80px; bottom:40px">
+     <a href='#' class='button'onclick='ESTfunction()'>Floods</a>
+      <a href='#' class='button'onclick='ESTfunction()'>Wildfires</a>
+      <a href='#' class='button'onclick='ESTfunction()'>Heat waves</a>
+      <a href='#' class='button'onclick='ESTfunction()'>Tornadoes</a>
+      <a href='#' class='button'onclick='ESTfunction()'>Hurricanes</a>
+      <a href='#' class='button'onclick='ESTfunction()'>Droughts</a>
+      <a href='#' class='button'onclick='ESTfunction()'>Earth Surface Temperature</a>
+      <a href='#' class='button'onclick='ESTfunction()'>Sea Level</a>
+      <a href='#' class='button'onclick='ESTfunction()'>Carbon Emission</a>
+</div>
+
+</body>
+
+</html>
+
